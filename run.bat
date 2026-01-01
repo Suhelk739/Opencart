@@ -1,2 +1,2 @@
-cd C:\Workspace2\Opencart
+cd D:\Workspace2\Opencart	
 mvn test
