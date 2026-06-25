@@ -3,8 +3,10 @@
 
 
 
-<suite name="Suite" thread-count="5" parallel="tests">
-	
+<suite name="Suite" thread-count="5">
+	  	<listeners>
+		<listener class-name="utilities.ExtentReportManager"/>
+	</listeners>
 
   <test  name="Test1">
 	  <parameter name="OS" value="windows"/>
@@ -16,9 +18,7 @@
     </classes>
   </test> <!-- Test -->
   
-  	<listeners>
-		<listener class-name="utilities.ExtentReportManager"/>
-	</listeners>
+
 	
   <test  name="Test2">
 	  <parameter name="OS" value="windows"/>

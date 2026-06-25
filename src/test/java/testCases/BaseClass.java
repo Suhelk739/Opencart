@@ -19,6 +19,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -45,7 +46,7 @@ public class BaseClass {
 		
 		//reading config file:
 		FileReader file=new FileReader("./src//test//resources//config.properties");// this class is used to read the file
-		p=new Properties();
+		p=new Properties(); 
 		p.load(file);
 		
 		logger=LogManager.getLogger(this.getClass());
@@ -73,6 +74,7 @@ public class BaseClass {
 			
 			//browser setup
 			switch(br.toLowerCase()) {
+			
 			case "chrome": cap.setBrowserName("chrome"); break;
 			case "edge":cap.setBrowserName("MicrosoftEdge"); break;
 			case "firefox": cap.setBrowserName("firefox");break;
@@ -84,9 +86,20 @@ public class BaseClass {
 		}
 		
 		if(p.getProperty("execution_env").equals("local")) {
+			//System.setProperty("webdriver.chrome.driver", "C:\\bin\\chromedriver.exe");
+            //ChromeOptions options = new ChromeOptions();
+            //options.setBinary("C:\\chrome-for-testing\\chrome.exe"); // path to Chrome for Testing
+
 			switch(br) {
 			
-			case "chrome": driver=new ChromeDriver(); break;
+			
+			case "chrome": 
+			ChromeOptions op=new ChromeOptions();
+			op.setBinary("C:\\Program Files\\Chrome For Testing\\chrome-win64\\chrome.exe");
+			driver=new ChromeDriver(op);
+			
+			break;
+		
 			case "edge": driver=new EdgeDriver(); break;
 			case "firefox": driver=new FirefoxDriver(); break;
 			default :System.out.println("browser is not valid"); return;
