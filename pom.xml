@@ -24,7 +24,7 @@
 	          <configuration>
 				  <suiteXmlFiles>
 					  <suiteXmlFile>master.xml</suiteXmlFile>
-					  
+					  <suiteXmlFile>grouping.xml</suiteXmlFile>
 				  </suiteXmlFiles>
 				  
 			  </configuration>
@@ -39,6 +39,46 @@
 	  
 	  
   </build>
+  
+  <profiles>
+  <!-- Regression suite -->
+  <profile>
+    <id>regression</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>master.xml</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+
+  <!-- Grouping suite -->
+  <profile>
+    <id>grouping</id>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <suiteXmlFiles>
+              <suiteXmlFile>grouping.xml</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
+  
+ 
   
   
   
