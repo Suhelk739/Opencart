@@ -101,7 +101,7 @@ public class ExtentReportManager implements ITestListener {
 	public void onFinish(ITestContext testContext) {
 		
 		extent.flush();
-		
+		/*
 		String pathOfExtentReport = System.getProperty("user.dir")+"\\reports\\"+repName;
 		File extentReport = new File(pathOfExtentReport);
 		
@@ -112,7 +112,7 @@ public class ExtentReportManager implements ITestListener {
 		}
 
 		
-		/*  try {
+		  try {
 			  URL url = new  URL("file:///"+System.getProperty("user.dir")+"\\reports\\"+repName);
 		  
 		  // Create the email message 
