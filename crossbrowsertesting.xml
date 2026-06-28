@@ -10,7 +10,7 @@
 
   <test  name="Test1">
 	  <parameter name="OS" value="windows"/>
-	  <parameter name="browser" value="chrome"/>
+	  <parameter name="browser" value="${browser}"/>
 	  
     <classes>
      <class name="testCases.TC001_Registration"/> 
@@ -18,17 +18,6 @@
     </classes>
   </test> <!-- Test -->
   
-
-	
-  <test  name="Test2">
-	  <parameter name="OS" value="windows"/>
-	  <parameter name="browser" value="edge"/>
-	  
-    <classes>
-     <class name="testCases.TC001_Registration"/> 
-     <class name="testCases.TC002_Login"/>
-    </classes>
-  </test> <!-- Test -->
   
   
   
